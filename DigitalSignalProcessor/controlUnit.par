@@ -1,0 +1,263 @@
+Release 14.7 par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+RAJAT::  Mon Sep 14 10:03:58 2015
+
+par -w -intstyle ise -ol high -t 1 controlUnit_map.ncd controlUnit.ncd
+controlUnit.pcf 
+
+
+Constraints file: controlUnit.pcf.
+Loading device for application Rf_Device from file '3s700a.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "controlUnit" is an NCD, version 3.2, device xc3s700an, package fgg484, speed -4
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.42 2013-10-13".
+
+
+Design Summary Report:
+
+ Number of External IOBs                          18 out of 372     4%
+
+   Number of External Input IOBs                  7
+
+      Number of External Input IBUFs              7
+        Number of LOCed External Input IBUFs      7 out of 7     100%
+
+
+   Number of External Output IOBs                11
+
+      Number of External Output IOBs             11
+        Number of LOCed External Output IOBs     11 out of 11    100%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BUFGMUXs                        2 out of 24      8%
+   Number of MULT18X18SIOs                   1 out of 20      5%
+   Number of RAMB16BWEs                      1 out of 20      5%
+   Number of Slices                        674 out of 5888   11%
+      Number of SLICEMs                     18 out of 2944    1%
+
+
+
+Overall effort level (-ol):   High 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 4 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:fa16f5f4) REAL time: 6 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:fa16f5f4) REAL time: 6 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:fa16f5f4) REAL time: 6 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+
+Phase 4.2  Initial Clock and IO Placement (Checksum:2d076a3f) REAL time: 10 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:2d076a3f) REAL time: 10 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:2d076a3f) REAL time: 10 secs 
+
+Phase 7.8  Global Placement
+...................................................................................................................................................................
+.........
+Phase 7.8  Global Placement (Checksum:b08a4829) REAL time: 11 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:b08a4829) REAL time: 11 secs 
+
+Phase 9.18  Placement Optimization
+Phase 9.18  Placement Optimization (Checksum:f5caffd8) REAL time: 12 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:f5caffd8) REAL time: 12 secs 
+
+Total REAL time to Placer completion: 12 secs 
+Total CPU  time to Placer completion: 12 secs 
+Writing design to file controlUnit.ncd
+
+
+
+Starting Router
+
+
+Phase  1  : 4244 unrouted;      REAL time: 23 secs 
+
+Phase  2  : 3732 unrouted;      REAL time: 25 secs 
+
+Phase  3  : 806 unrouted;      REAL time: 25 secs 
+
+Phase  4  : 806 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 26 secs 
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 27 secs 
+
+Updating file: controlUnit.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 28 secs 
+
+Phase  7  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 29 secs 
+
+Phase  8  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 29 secs 
+
+Phase  9  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 31 secs 
+
+Phase 10  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 31 secs 
+
+Phase 11  : 0 unrouted; (Setup:0, Hold:2092, Component Switching Limit:0)     REAL time: 31 secs 
+
+Phase 12  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
+
+Phase 13  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 32 secs 
+WARNING:Route:455 - CLK Net:IO_module/encoder1/Hex_not0001 may have excessive skew because 
+      4 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:ALU_logic/ALU/DeMux1/Out10_cmp_eq0000 may have excessive skew because 
+      1 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:ALU_logic/ALU/DeMux1/Out5_cmp_eq0000 may have excessive skew because 
+      1 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:ALU_logic/ALU/DeMux1/Out6_cmp_eq0000 may have excessive skew because 
+      4 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:ALU_logic/ALU/DeMux1/Out7_cmp_eq0000 may have excessive skew because 
+      1 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+
+Total REAL time to Router completion: 32 secs 
+Total CPU time to Router completion: 32 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|            clk_IBUF | BUFGMUX_X2Y11| No   |  224 |  0.146     |  1.125      |
++---------------------+--------------+------+------+------------+-------------+
+|IO_module/LCD/rstclk |              |      |      |            |             |
+|                     | BUFGMUX_X1Y10| No   |   55 |  0.103     |  1.084      |
++---------------------+--------------+------+------+------------+-------------+
+|IO_module/encoder1/H |              |      |      |            |             |
+|          ex_not0001 |         Local|      |    4 |  0.268     |  0.912      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|   /Out11_cmp_eq0000 |         Local|      |    4 |  0.066     |  1.960      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/MUX/Ou |              |      |      |            |             |
+|           t_not0001 |         Local|      |    8 |  0.079     |  1.674      |
++---------------------+--------------+------+------+------------+-------------+
+|IO_module/encoder2/H |              |      |      |            |             |
+|          ex_not0001 |         Local|      |    4 |  0.033     |  1.719      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|   /Out12_cmp_eq0000 |         Local|      |    4 |  0.006     |  1.687      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|   /Out10_cmp_eq0000 |         Local|      |    8 |  1.059     |  1.699      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out5_cmp_eq0000 |         Local|      |    4 |  0.450     |  2.062      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|   /Out13_cmp_eq0000 |         Local|      |    4 |  0.078     |  1.640      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out6_cmp_eq0000 |         Local|      |    4 |  0.349     |  1.247      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out4_cmp_eq0000 |         Local|      |    8 |  0.125     |  2.138      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out7_cmp_eq0000 |         Local|      |    4 |  0.439     |  1.186      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out9_cmp_eq0000 |         Local|      |    8 |  0.093     |  2.068      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out1_cmp_eq0000 |         Local|      |    8 |  0.197     |  2.185      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|       /Out0_not0001 |         Local|      |    8 |  0.127     |  2.156      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out3_cmp_eq0000 |         Local|      |    8 |  0.079     |  2.099      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out2_cmp_eq0000 |         Local|      |    8 |  0.072     |  1.983      |
++---------------------+--------------+------+------+------------+-------------+
+|ALU_logic/ALU/DeMux1 |              |      |      |            |             |
+|    /Out8_cmp_eq0000 |         Local|      |    8 |  0.116     |  2.175      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  NET "clk_IBUF1" PERIOD = 20 ns HIGH 40%   | SETUP       |     8.274ns|    11.726ns|       0|           0
+                                            | HOLD        |     0.064ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 34 secs 
+Total CPU time to PAR completion: 34 secs 
+
+Peak Memory Usage:  381 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+Timing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 5
+Number of info messages: 0
+
+Writing design to file controlUnit.ncd
+
+
+
+PAR done!

@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+ALU instance_name (
+    .acc_in(acc_in), 
+    .data_register(data_register), 
+    .opcode(opcode), 
+    .result(result)
+    );
+
+

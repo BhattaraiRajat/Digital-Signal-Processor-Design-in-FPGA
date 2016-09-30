@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/FPGA/DigitalSignalProcessor/ps2_rx.v -lang verilog -prj DigitalSignalProcessor -o ps2_rx.spl -module ps2_rx -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3a ps2_rx.spl D:/FPGA/DigitalSignalProcessor/ps2_rx.sym 

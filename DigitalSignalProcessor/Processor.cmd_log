@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj DigitalSignalProcessor -o D:/FPGA/DigitalSignalProcessor/Processor.tfi -lib work D:/FPGA/DigitalSignalProcessor//Processor.v -module Processor -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj DigitalSignalProcessor -o D:/FPGA/DigitalSignalProcessor/Processor.tfi -lib work D:/FPGA/DigitalSignalProcessor//Processor.v -module Processor -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

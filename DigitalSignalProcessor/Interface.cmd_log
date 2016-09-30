@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj DigitalSignalProcessor -o D:/FPGA/DigitalSignalProcessor/Interface.tfi -lib work D:/FPGA/DigitalSignalProcessor//Interface.v -module Interface -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

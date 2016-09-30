@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj DigitalSignalProcessor -o D:/FPGA/DigitalSignalProcessor/keytoHex.tfi -lib work D:/FPGA/DigitalSignalProcessor//keytoHex.v -module keytoHex -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

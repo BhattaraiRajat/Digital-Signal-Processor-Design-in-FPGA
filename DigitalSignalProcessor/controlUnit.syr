@@ -1,0 +1,1791 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.25 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.25 secs
+ 
+--> Reading design: controlUnit.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "controlUnit.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "controlUnit"
+Output Format                      : NGC
+Target Device                      : xc3s700an-4-fgg484
+
+---- Source Options
+Top Module Name                    : controlUnit
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "CLA8bit.v" in library work
+Compiling verilog file "XOR_gate.v" in library work
+Module <CLA8bit> compiled
+Compiling verilog file "Subtractor8bit.v" in library work
+Module <XOR_Gate> compiled
+Compiling verilog file "Right_Shift.v" in library work
+Module <Subtractor8bit> compiled
+Compiling verilog file "ps2_rx.v" in library work
+Module <Right_Shift> compiled
+Compiling verilog file "OR_Gate.v" in library work
+Module <ps2_rx> compiled
+Compiling verilog file "NOR_Gate.v" in library work
+Module <OR_Gate> compiled
+Compiling verilog file "NAND_Gate.v" in library work
+Module <NOR_Gate> compiled
+Compiling verilog file "Mux16to1.v" in library work
+Module <NAND_Gate> compiled
+Compiling verilog file "Multiplier8bit.v" in library work
+Module <Mux16to1> compiled
+Compiling verilog file "Left_Shift.v" in library work
+Module <Multiplier8bit> compiled
+Compiling verilog file "Increment.v" in library work
+Module <Left_Shift> compiled
+Compiling verilog file "fifo.v" in library work
+Module <Increment> compiled
+Compiling verilog file "DeMux1to16.v" in library work
+Module <fifo> compiled
+Compiling verilog file "Decrement.v" in library work
+Module <DeMux1to16> compiled
+Compiling verilog file "Complement.v" in library work
+Module <Decrement> compiled
+Compiling verilog file "Arithmetic_Right_Shift.v" in library work
+Module <Complement> compiled
+Compiling verilog file "AND_Gate.v" in library work
+Module <Arithmetic_Right_Shift> compiled
+Compiling verilog file "lcdDriver.v" in library work
+Module <AND_Gate> compiled
+Compiling verilog file "keytoHex.v" in library work
+Module <lcdDriver> compiled
+Compiling verilog file "kb_code.v" in library work
+Module <keytoHex> compiled
+Compiling verilog file "HextoASCII.v" in library work
+Module <kb_code> compiled
+Compiling verilog file "ALU_Unit.v" in library work
+Module <HextoASCII> compiled
+Compiling verilog file "Processor.v" in library work
+Module <ALU_Unit> compiled
+Compiling verilog file "ipcore_dir/RAM.v" in library work
+Module <Processor> compiled
+Compiling verilog file "Interface.v" in library work
+Module <RAM> compiled
+Compiling verilog file "controlUnit.v" in library work
+Module <Interface> compiled
+Module <controlUnit> compiled
+No errors in compilation
+Analysis of file <"controlUnit.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <controlUnit> in library <work> with parameters.
+	execute = "11"
+	idle = "00"
+	load = "01"
+	temp = "10"
+
+Analyzing hierarchy for module <Interface> in library <work> with parameters.
+	idle = "00"
+	read1 = "01"
+	read2 = "10"
+
+Analyzing hierarchy for module <Processor> in library <work> with parameters.
+	decode = "010"
+	execute_alu = "011"
+	fetch = "001"
+	halt = "100"
+	idle = "000"
+
+Analyzing hierarchy for module <lcdDriver> in library <work> with parameters.
+	Char2Display = "0111"
+	char_update = "1000"
+	clr_display = "0100"
+	done1 = "110"
+	done2 = "1010"
+	done3 = "1001"
+	eight = "1001"
+	entry_set = "0010"
+	fifteenms = "0001"
+	five = "0110"
+	fortyus = "101"
+	four = "0101"
+	function_set = "0001"
+	high_hold = "001"
+	high_setup = "000"
+	idle = "0000"
+	init = "0000"
+	low_hold = "100"
+	low_setup = "011"
+	one = "0010"
+	oneus = "010"
+	pause = "0101"
+	set_addr = "0110"
+	set_display = "0011"
+	seven = "1000"
+	six = "0111"
+	three = "0100"
+	two = "0011"
+
+Analyzing hierarchy for module <kb_code> in library <work> with parameters.
+	BRK = "11110000"
+	W_SIZE = "00000000000000000000000000000010"
+	get_code = "1"
+	wait_brk = "0"
+
+Analyzing hierarchy for module <keytoHex> in library <work>.
+
+Analyzing hierarchy for module <HextoASCII> in library <work>.
+
+Analyzing hierarchy for module <ALU_Unit> in library <work>.
+
+Analyzing hierarchy for module <ps2_rx> in library <work> with parameters.
+	dps = "01"
+	idle = "00"
+	load = "10"
+
+Analyzing hierarchy for module <fifo> in library <work> with parameters.
+	B = "00000000000000000000000000001000"
+	W = "00000000000000000000000000000010"
+
+Analyzing hierarchy for module <DeMux1to16> in library <work>.
+
+Analyzing hierarchy for module <AND_Gate> in library <work>.
+
+Analyzing hierarchy for module <OR_Gate> in library <work>.
+
+Analyzing hierarchy for module <NAND_Gate> in library <work>.
+
+Analyzing hierarchy for module <NOR_Gate> in library <work>.
+
+Analyzing hierarchy for module <XOR_Gate> in library <work>.
+
+Analyzing hierarchy for module <Complement> in library <work>.
+
+Analyzing hierarchy for module <Increment> in library <work>.
+
+Analyzing hierarchy for module <Decrement> in library <work>.
+
+Analyzing hierarchy for module <CLA8bit> in library <work>.
+
+Analyzing hierarchy for module <Subtractor8bit> in library <work>.
+
+Analyzing hierarchy for module <Multiplier8bit> in library <work>.
+
+Analyzing hierarchy for module <Right_Shift> in library <work>.
+
+Analyzing hierarchy for module <Left_Shift> in library <work>.
+
+Analyzing hierarchy for module <Arithmetic_Right_Shift> in library <work>.
+
+Analyzing hierarchy for module <Mux16to1> in library <work>.
+
+Analyzing hierarchy for module <CLA8bit> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <controlUnit>.
+	execute = 2'b11
+	idle = 2'b00
+	load = 2'b01
+	temp = 2'b10
+WARNING:Xst:2211 - "ipcore_dir/RAM.v" line 64: Instantiating black box module <RAM>.
+Module <controlUnit> is correct for synthesis.
+ 
+Analyzing module <Interface> in library <work>.
+	idle = 2'b00
+	read1 = 2'b01
+	read2 = 2'b10
+Module <Interface> is correct for synthesis.
+ 
+Analyzing module <lcdDriver> in library <work>.
+	Char2Display = 4'b0111
+	char_update = 4'b1000
+	clr_display = 4'b0100
+	done1 = 3'b110
+	done2 = 4'b1010
+	done3 = 4'b1001
+	eight = 4'b1001
+	entry_set = 4'b0010
+	fifteenms = 4'b0001
+	five = 4'b0110
+	fortyus = 3'b101
+	four = 4'b0101
+	function_set = 4'b0001
+	high_hold = 3'b001
+	high_setup = 3'b000
+	idle = 4'b0000
+	init = 4'b0000
+	low_hold = 3'b100
+	low_setup = 3'b011
+	one = 4'b0010
+	oneus = 3'b010
+	pause = 4'b0101
+	set_addr = 4'b0110
+	set_display = 4'b0011
+	seven = 4'b1000
+	six = 4'b0111
+	three = 4'b0100
+	two = 4'b0011
+INFO:Xst:1432 - Contents of array <ascii> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <ascii> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <lcdDriver> is correct for synthesis.
+ 
+Analyzing module <kb_code> in library <work>.
+	BRK = 8'b11110000
+	W_SIZE = 32'sb00000000000000000000000000000010
+	get_code = 1'b1
+	wait_brk = 1'b0
+Module <kb_code> is correct for synthesis.
+ 
+Analyzing module <ps2_rx> in library <work>.
+	dps = 2'b01
+	idle = 2'b00
+	load = 2'b10
+Module <ps2_rx> is correct for synthesis.
+ 
+Analyzing module <fifo> in library <work>.
+	B = 32'sb00000000000000000000000000001000
+	W = 32'sb00000000000000000000000000000010
+Module <fifo> is correct for synthesis.
+ 
+Analyzing module <keytoHex> in library <work>.
+Module <keytoHex> is correct for synthesis.
+ 
+Analyzing module <HextoASCII> in library <work>.
+Module <HextoASCII> is correct for synthesis.
+ 
+Analyzing module <Processor> in library <work>.
+	decode = 3'b010
+	execute_alu = 3'b011
+	fetch = 3'b001
+	halt = 3'b100
+	idle = 3'b000
+Module <Processor> is correct for synthesis.
+ 
+Analyzing module <ALU_Unit> in library <work>.
+Module <ALU_Unit> is correct for synthesis.
+ 
+Analyzing module <DeMux1to16> in library <work>.
+Module <DeMux1to16> is correct for synthesis.
+ 
+Analyzing module <AND_Gate> in library <work>.
+Module <AND_Gate> is correct for synthesis.
+ 
+Analyzing module <OR_Gate> in library <work>.
+Module <OR_Gate> is correct for synthesis.
+ 
+Analyzing module <NAND_Gate> in library <work>.
+Module <NAND_Gate> is correct for synthesis.
+ 
+Analyzing module <NOR_Gate> in library <work>.
+Module <NOR_Gate> is correct for synthesis.
+ 
+Analyzing module <XOR_Gate> in library <work>.
+Module <XOR_Gate> is correct for synthesis.
+ 
+Analyzing module <Complement> in library <work>.
+Module <Complement> is correct for synthesis.
+ 
+Analyzing module <Increment> in library <work>.
+Module <Increment> is correct for synthesis.
+ 
+Analyzing module <Decrement> in library <work>.
+Module <Decrement> is correct for synthesis.
+ 
+Analyzing module <CLA8bit> in library <work>.
+Module <CLA8bit> is correct for synthesis.
+ 
+Analyzing module <Subtractor8bit> in library <work>.
+Module <Subtractor8bit> is correct for synthesis.
+ 
+Analyzing module <Multiplier8bit> in library <work>.
+Module <Multiplier8bit> is correct for synthesis.
+ 
+Analyzing module <Right_Shift> in library <work>.
+Module <Right_Shift> is correct for synthesis.
+ 
+Analyzing module <Left_Shift> in library <work>.
+Module <Left_Shift> is correct for synthesis.
+ 
+Analyzing module <Arithmetic_Right_Shift> in library <work>.
+Module <Arithmetic_Right_Shift> is correct for synthesis.
+ 
+Analyzing module <Mux16to1> in library <work>.
+Module <Mux16to1> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <lcdDriver>.
+    Related source file is "lcdDriver.v".
+WARNING:Xst:1870 - Variable <letter_cnt> is used but never assigned. Tied to value 00000000000000000000000000100000.
+    Found finite state machine <FSM_0> for signal <cur_state>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 21                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 12                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_1> for signal <tx_state>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 14                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 7                                              |
+    | Clock              | rstclk                    (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 110                                            |
+    | Power Up State     | 110                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_2> for signal <init_state>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 21                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 11                                             |
+    | Clock              | rstclk                    (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit 32-to-1 multiplexer for signal <$varindex0000> created at line 164.
+    Found 256-bit register for signal <ascii>.
+    Found 32-bit comparator less for signal <cur_state$cmp_lt0000> created at line 254.
+    Found 32-bit register for signal <i>.
+    Found 32-bit adder for signal <i$share0000> created at line 409.
+    Found 32-bit up counter for signal <i1>.
+    Found 32-bit register for signal <i2>.
+    Found 32-bit adder for signal <i2$share0000> created at line 300.
+    Found 32-bit register for signal <i3>.
+    Found 32-bit adder for signal <i3$addsub0000> created at line 230.
+    Found 1-bit register for signal <init_done>.
+    Found 1-bit register for signal <LCD_E0>.
+    Found 1-bit register for signal <LCD_E1>.
+    Found 4-bit register for signal <SF_D0>.
+    Found 4-bit register for signal <SF_D1>.
+    Found 8-bit register for signal <tx_byte>.
+INFO:Xst:738 - HDL ADVISOR - 256 flip-flops were inferred for signal <ascii>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred   3 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred 371 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <lcdDriver> synthesized.
+
+
+Synthesizing Unit <keytoHex>.
+    Related source file is "keytoHex.v".
+WARNING:Xst:737 - Found 8-bit latch for signal <Hex>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+Unit <keytoHex> synthesized.
+
+
+Synthesizing Unit <HextoASCII>.
+    Related source file is "HextoASCII.v".
+    Found 16x8-bit ROM for signal <ascii_code$mux0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <HextoASCII> synthesized.
+
+
+Synthesizing Unit <ps2_rx>.
+    Related source file is "ps2_rx.v".
+    Found finite state machine <FSM_3> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 11-bit register for signal <b_reg>.
+    Found 1-bit register for signal <f_ps2c_reg>.
+    Found 8-bit register for signal <filter_reg>.
+    Found 4-bit subtractor for signal <n_next$addsub0000> created at line 94.
+    Found 4-bit register for signal <n_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <ps2_rx> synthesized.
+
+
+Synthesizing Unit <fifo>.
+    Related source file is "fifo.v".
+WARNING:Xst:646 - Signal <w_ptr_succ> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <r_ptr_succ> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4x8-bit dual-port RAM <Mram_array_reg> for signal <array_reg>.
+    Found 1-bit 4-to-1 multiplexer for signal <empty_next>.
+    Found 2-bit comparator equal for signal <empty_next$cmp_eq0000> created at line 83.
+    Found 1-bit register for signal <empty_reg>.
+    Found 1-bit 4-to-1 multiplexer for signal <full_next>.
+    Found 2-bit comparator equal for signal <full_next$cmp_eq0000> created at line 91.
+    Found 1-bit register for signal <full_reg>.
+    Found 2-bit register for signal <r_ptr_reg>.
+    Found 2-bit register for signal <w_ptr_reg>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   6 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <fifo> synthesized.
+
+
+Synthesizing Unit <DeMux1to16>.
+    Related source file is "DeMux1to16.v".
+WARNING:Xst:737 - Found 8-bit latch for signal <Out0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out5>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out6>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out7>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out8>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out9>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out10>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out11>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out12>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 8-bit latch for signal <Out13>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+Unit <DeMux1to16> synthesized.
+
+
+Synthesizing Unit <AND_Gate>.
+    Related source file is "AND_Gate.v".
+Unit <AND_Gate> synthesized.
+
+
+Synthesizing Unit <OR_Gate>.
+    Related source file is "OR_Gate.v".
+Unit <OR_Gate> synthesized.
+
+
+Synthesizing Unit <NAND_Gate>.
+    Related source file is "NAND_Gate.v".
+Unit <NAND_Gate> synthesized.
+
+
+Synthesizing Unit <NOR_Gate>.
+    Related source file is "NOR_Gate.v".
+Unit <NOR_Gate> synthesized.
+
+
+Synthesizing Unit <XOR_Gate>.
+    Related source file is "XOR_gate.v".
+Unit <XOR_Gate> synthesized.
+
+
+Synthesizing Unit <Complement>.
+    Related source file is "Complement.v".
+Unit <Complement> synthesized.
+
+
+Synthesizing Unit <Increment>.
+    Related source file is "Increment.v".
+    Found 8-bit adder for signal <Out>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <Increment> synthesized.
+
+
+Synthesizing Unit <Decrement>.
+    Related source file is "Decrement.v".
+    Found 8-bit subtractor for signal <Out>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <Decrement> synthesized.
+
+
+Synthesizing Unit <CLA8bit>.
+    Related source file is "CLA8bit.v".
+    Found 8-bit xor2 for signal <P>.
+    Found 1-bit xor2 for signal <Sum$xor0000> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0001> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0002> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0003> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0004> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0005> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0006> created at line 41.
+    Found 1-bit xor2 for signal <Sum$xor0007> created at line 41.
+Unit <CLA8bit> synthesized.
+
+
+Synthesizing Unit <Multiplier8bit>.
+    Related source file is "Multiplier8bit.v".
+    Found 8x8-bit multiplier for signal <Out>.
+    Summary:
+	inferred   1 Multiplier(s).
+Unit <Multiplier8bit> synthesized.
+
+
+Synthesizing Unit <Right_Shift>.
+    Related source file is "Right_Shift.v".
+WARNING:Xst:647 - Input <In1<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <Right_Shift> synthesized.
+
+
+Synthesizing Unit <Left_Shift>.
+    Related source file is "Left_Shift.v".
+WARNING:Xst:647 - Input <In1<7>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <Left_Shift> synthesized.
+
+
+Synthesizing Unit <Arithmetic_Right_Shift>.
+    Related source file is "Arithmetic_Right_Shift.v".
+WARNING:Xst:647 - Input <In1<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <Arithmetic_Right_Shift> synthesized.
+
+
+Synthesizing Unit <Mux16to1>.
+    Related source file is "Mux16to1.v".
+WARNING:Xst:737 - Found 8-bit latch for signal <Out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 8-bit 14-to-1 multiplexer for signal <Out$mux0000>.
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <Mux16to1> synthesized.
+
+
+Synthesizing Unit <kb_code>.
+    Related source file is "kb_code.v".
+    Found 1-bit register for signal <next_key>.
+    Found 2-bit register for signal <count_out_reg>.
+    Found 2-bit adder for signal <count_out_reg$addsub0000> created at line 91.
+    Found 1-bit register for signal <got_code_tick>.
+    Found 1-bit register for signal <state_next>.
+    Found 1-bit register for signal <state_reg>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <kb_code> synthesized.
+
+
+Synthesizing Unit <Subtractor8bit>.
+    Related source file is "Subtractor8bit.v".
+Unit <Subtractor8bit> synthesized.
+
+
+Synthesizing Unit <Interface>.
+    Related source file is "Interface.v".
+    Register <char_input<87>> equivalent to <char_input<0>> has been removed
+    Register <char_input<30>> equivalent to <char_input<10>> has been removed
+    Register <char_input<32>> equivalent to <char_input<10>> has been removed
+    Register <char_input<35>> equivalent to <char_input<10>> has been removed
+    Register <char_input<38>> equivalent to <char_input<10>> has been removed
+    Register <char_input<42>> equivalent to <char_input<10>> has been removed
+    Register <char_input<43>> equivalent to <char_input<10>> has been removed
+    Register <char_input<46>> equivalent to <char_input<10>> has been removed
+    Register <char_input<54>> equivalent to <char_input<10>> has been removed
+    Register <char_input<26>> equivalent to <char_input<11>> has been removed
+    Register <char_input<3>> equivalent to <char_input<11>> has been removed
+    Register <char_input<41>> equivalent to <char_input<11>> has been removed
+    Register <char_input<49>> equivalent to <char_input<11>> has been removed
+    Register <char_input<121>> equivalent to <char_input<120>> has been removed
+    Register <char_input<122>> equivalent to <char_input<120>> has been removed
+    Register <char_input<123>> equivalent to <char_input<120>> has been removed
+    Register <char_input<124>> equivalent to <char_input<120>> has been removed
+    Register <char_input<126>> equivalent to <char_input<120>> has been removed
+    Register <char_input<128>> equivalent to <char_input<120>> has been removed
+    Register <char_input<129>> equivalent to <char_input<120>> has been removed
+    Register <char_input<12>> equivalent to <char_input<120>> has been removed
+    Register <char_input<130>> equivalent to <char_input<120>> has been removed
+    Register <char_input<131>> equivalent to <char_input<120>> has been removed
+    Register <char_input<132>> equivalent to <char_input<120>> has been removed
+    Register <char_input<134>> equivalent to <char_input<120>> has been removed
+    Register <char_input<136>> equivalent to <char_input<120>> has been removed
+    Register <char_input<137>> equivalent to <char_input<120>> has been removed
+    Register <char_input<138>> equivalent to <char_input<120>> has been removed
+    Register <char_input<139>> equivalent to <char_input<120>> has been removed
+    Register <char_input<13>> equivalent to <char_input<120>> has been removed
+    Register <char_input<140>> equivalent to <char_input<120>> has been removed
+    Register <char_input<142>> equivalent to <char_input<120>> has been removed
+    Register <char_input<144>> equivalent to <char_input<120>> has been removed
+    Register <char_input<145>> equivalent to <char_input<120>> has been removed
+    Register <char_input<146>> equivalent to <char_input<120>> has been removed
+    Register <char_input<147>> equivalent to <char_input<120>> has been removed
+    Register <char_input<148>> equivalent to <char_input<120>> has been removed
+    Register <char_input<150>> equivalent to <char_input<120>> has been removed
+    Register <char_input<152>> equivalent to <char_input<120>> has been removed
+    Register <char_input<153>> equivalent to <char_input<120>> has been removed
+    Register <char_input<154>> equivalent to <char_input<120>> has been removed
+    Register <char_input<155>> equivalent to <char_input<120>> has been removed
+    Register <char_input<156>> equivalent to <char_input<120>> has been removed
+    Register <char_input<158>> equivalent to <char_input<120>> has been removed
+    Register <char_input<15>> equivalent to <char_input<120>> has been removed
+    Register <char_input<160>> equivalent to <char_input<120>> has been removed
+    Register <char_input<161>> equivalent to <char_input<120>> has been removed
+    Register <char_input<162>> equivalent to <char_input<120>> has been removed
+    Register <char_input<163>> equivalent to <char_input<120>> has been removed
+    Register <char_input<164>> equivalent to <char_input<120>> has been removed
+    Register <char_input<166>> equivalent to <char_input<120>> has been removed
+    Register <char_input<168>> equivalent to <char_input<120>> has been removed
+    Register <char_input<169>> equivalent to <char_input<120>> has been removed
+    Register <char_input<170>> equivalent to <char_input<120>> has been removed
+    Register <char_input<171>> equivalent to <char_input<120>> has been removed
+    Register <char_input<172>> equivalent to <char_input<120>> has been removed
+    Register <char_input<174>> equivalent to <char_input<120>> has been removed
+    Register <char_input<176>> equivalent to <char_input<120>> has been removed
+    Register <char_input<177>> equivalent to <char_input<120>> has been removed
+    Register <char_input<178>> equivalent to <char_input<120>> has been removed
+    Register <char_input<179>> equivalent to <char_input<120>> has been removed
+    Register <char_input<180>> equivalent to <char_input<120>> has been removed
+    Register <char_input<182>> equivalent to <char_input<120>> has been removed
+    Register <char_input<184>> equivalent to <char_input<120>> has been removed
+    Register <char_input<185>> equivalent to <char_input<120>> has been removed
+    Register <char_input<186>> equivalent to <char_input<120>> has been removed
+    Register <char_input<187>> equivalent to <char_input<120>> has been removed
+    Register <char_input<188>> equivalent to <char_input<120>> has been removed
+    Register <char_input<190>> equivalent to <char_input<120>> has been removed
+    Register <char_input<192>> equivalent to <char_input<120>> has been removed
+    Register <char_input<193>> equivalent to <char_input<120>> has been removed
+    Register <char_input<194>> equivalent to <char_input<120>> has been removed
+    Register <char_input<195>> equivalent to <char_input<120>> has been removed
+    Register <char_input<196>> equivalent to <char_input<120>> has been removed
+    Register <char_input<198>> equivalent to <char_input<120>> has been removed
+    Register <char_input<200>> equivalent to <char_input<120>> has been removed
+    Register <char_input<201>> equivalent to <char_input<120>> has been removed
+    Register <char_input<202>> equivalent to <char_input<120>> has been removed
+    Register <char_input<203>> equivalent to <char_input<120>> has been removed
+    Register <char_input<204>> equivalent to <char_input<120>> has been removed
+    Register <char_input<206>> equivalent to <char_input<120>> has been removed
+    Register <char_input<208>> equivalent to <char_input<120>> has been removed
+    Register <char_input<209>> equivalent to <char_input<120>> has been removed
+    Register <char_input<20>> equivalent to <char_input<120>> has been removed
+    Register <char_input<210>> equivalent to <char_input<120>> has been removed
+    Register <char_input<211>> equivalent to <char_input<120>> has been removed
+    Register <char_input<212>> equivalent to <char_input<120>> has been removed
+    Register <char_input<214>> equivalent to <char_input<120>> has been removed
+    Register <char_input<216>> equivalent to <char_input<120>> has been removed
+    Register <char_input<217>> equivalent to <char_input<120>> has been removed
+    Register <char_input<218>> equivalent to <char_input<120>> has been removed
+    Register <char_input<219>> equivalent to <char_input<120>> has been removed
+    Register <char_input<21>> equivalent to <char_input<120>> has been removed
+    Register <char_input<220>> equivalent to <char_input<120>> has been removed
+    Register <char_input<222>> equivalent to <char_input<120>> has been removed
+    Register <char_input<224>> equivalent to <char_input<120>> has been removed
+    Register <char_input<225>> equivalent to <char_input<120>> has been removed
+    Register <char_input<226>> equivalent to <char_input<120>> has been removed
+    Register <char_input<227>> equivalent to <char_input<120>> has been removed
+    Register <char_input<228>> equivalent to <char_input<120>> has been removed
+    Register <char_input<230>> equivalent to <char_input<120>> has been removed
+    Register <char_input<232>> equivalent to <char_input<120>> has been removed
+    Register <char_input<233>> equivalent to <char_input<120>> has been removed
+    Register <char_input<234>> equivalent to <char_input<120>> has been removed
+    Register <char_input<235>> equivalent to <char_input<120>> has been removed
+    Register <char_input<236>> equivalent to <char_input<120>> has been removed
+    Register <char_input<238>> equivalent to <char_input<120>> has been removed
+    Register <char_input<23>> equivalent to <char_input<120>> has been removed
+    Register <char_input<240>> equivalent to <char_input<120>> has been removed
+    Register <char_input<241>> equivalent to <char_input<120>> has been removed
+    Register <char_input<242>> equivalent to <char_input<120>> has been removed
+    Register <char_input<243>> equivalent to <char_input<120>> has been removed
+    Register <char_input<244>> equivalent to <char_input<120>> has been removed
+    Register <char_input<246>> equivalent to <char_input<120>> has been removed
+    Register <char_input<248>> equivalent to <char_input<120>> has been removed
+    Register <char_input<249>> equivalent to <char_input<120>> has been removed
+    Register <char_input<250>> equivalent to <char_input<120>> has been removed
+    Register <char_input<251>> equivalent to <char_input<120>> has been removed
+    Register <char_input<252>> equivalent to <char_input<120>> has been removed
+    Register <char_input<254>> equivalent to <char_input<120>> has been removed
+    Register <char_input<27>> equivalent to <char_input<120>> has been removed
+    Register <char_input<28>> equivalent to <char_input<120>> has been removed
+    Register <char_input<36>> equivalent to <char_input<120>> has been removed
+    Register <char_input<44>> equivalent to <char_input<120>> has been removed
+    Register <char_input<51>> equivalent to <char_input<120>> has been removed
+    Register <char_input<57>> equivalent to <char_input<120>> has been removed
+    Register <char_input<58>> equivalent to <char_input<120>> has been removed
+    Register <char_input<7>> equivalent to <char_input<120>> has been removed
+    Register <char_input<80>> equivalent to <char_input<120>> has been removed
+    Register <char_input<84>> equivalent to <char_input<120>> has been removed
+    Register <char_input<86>> equivalent to <char_input<120>> has been removed
+    Register <char_input<88>> equivalent to <char_input<120>> has been removed
+    Register <char_input<89>> equivalent to <char_input<120>> has been removed
+    Register <char_input<90>> equivalent to <char_input<120>> has been removed
+    Register <char_input<91>> equivalent to <char_input<120>> has been removed
+    Register <char_input<92>> equivalent to <char_input<120>> has been removed
+    Register <char_input<94>> equivalent to <char_input<120>> has been removed
+    Register <char_input<127>> equivalent to <char_input<125>> has been removed
+    Register <char_input<133>> equivalent to <char_input<125>> has been removed
+    Register <char_input<135>> equivalent to <char_input<125>> has been removed
+    Register <char_input<141>> equivalent to <char_input<125>> has been removed
+    Register <char_input<143>> equivalent to <char_input<125>> has been removed
+    Register <char_input<149>> equivalent to <char_input<125>> has been removed
+    Register <char_input<14>> equivalent to <char_input<125>> has been removed
+    Register <char_input<151>> equivalent to <char_input<125>> has been removed
+    Register <char_input<157>> equivalent to <char_input<125>> has been removed
+    Register <char_input<159>> equivalent to <char_input<125>> has been removed
+    Register <char_input<165>> equivalent to <char_input<125>> has been removed
+    Register <char_input<167>> equivalent to <char_input<125>> has been removed
+    Register <char_input<173>> equivalent to <char_input<125>> has been removed
+    Register <char_input<175>> equivalent to <char_input<125>> has been removed
+    Register <char_input<181>> equivalent to <char_input<125>> has been removed
+    Register <char_input<183>> equivalent to <char_input<125>> has been removed
+    Register <char_input<189>> equivalent to <char_input<125>> has been removed
+    Register <char_input<191>> equivalent to <char_input<125>> has been removed
+    Register <char_input<197>> equivalent to <char_input<125>> has been removed
+    Register <char_input<199>> equivalent to <char_input<125>> has been removed
+    Register <char_input<205>> equivalent to <char_input<125>> has been removed
+    Register <char_input<207>> equivalent to <char_input<125>> has been removed
+    Register <char_input<213>> equivalent to <char_input<125>> has been removed
+    Register <char_input<215>> equivalent to <char_input<125>> has been removed
+    Register <char_input<221>> equivalent to <char_input<125>> has been removed
+    Register <char_input<223>> equivalent to <char_input<125>> has been removed
+    Register <char_input<229>> equivalent to <char_input<125>> has been removed
+    Register <char_input<22>> equivalent to <char_input<125>> has been removed
+    Register <char_input<231>> equivalent to <char_input<125>> has been removed
+    Register <char_input<237>> equivalent to <char_input<125>> has been removed
+    Register <char_input<239>> equivalent to <char_input<125>> has been removed
+    Register <char_input<245>> equivalent to <char_input<125>> has been removed
+    Register <char_input<247>> equivalent to <char_input<125>> has been removed
+    Register <char_input<253>> equivalent to <char_input<125>> has been removed
+    Register <char_input<255>> equivalent to <char_input<125>> has been removed
+    Register <char_input<6>> equivalent to <char_input<125>> has been removed
+    Register <char_input<85>> equivalent to <char_input<125>> has been removed
+    Register <char_input<93>> equivalent to <char_input<125>> has been removed
+    Register <char_input<95>> equivalent to <char_input<125>> has been removed
+    Register <char_input<9>> equivalent to <char_input<16>> has been removed
+    Register <char_input<29>> equivalent to <char_input<17>> has been removed
+    Register <char_input<31>> equivalent to <char_input<17>> has been removed
+    Register <char_input<37>> equivalent to <char_input<17>> has been removed
+    Register <char_input<39>> equivalent to <char_input<17>> has been removed
+    Register <char_input<45>> equivalent to <char_input<17>> has been removed
+    Register <char_input<47>> equivalent to <char_input<17>> has been removed
+    Register <char_input<53>> equivalent to <char_input<17>> has been removed
+    Register <char_input<55>> equivalent to <char_input<17>> has been removed
+    Register <char_input<19>> equivalent to <char_input<18>> has been removed
+    Register <char_input<24>> equivalent to <char_input<18>> has been removed
+    Register <char_input<34>> equivalent to <char_input<18>> has been removed
+    Register <char_input<40>> equivalent to <char_input<18>> has been removed
+    Register <char_input<25>> equivalent to <char_input<1>> has been removed
+    Register <char_input<33>> equivalent to <char_input<1>> has been removed
+    Register <char_input<48>> equivalent to <char_input<2>> has been removed
+    Register <char_input<50>> equivalent to <char_input<2>> has been removed
+    Register <char_input<56>> equivalent to <char_input<52>> has been removed
+    Register <char_input<59>> equivalent to <char_input<52>> has been removed
+    Register <char_input<60>> equivalent to <char_input<52>> has been removed
+    Register <char_input<62>> equivalent to <char_input<52>> has been removed
+    Register <char_input<63>> equivalent to <char_input<61>> has been removed
+    Register <char_input<8>> equivalent to <char_input<61>> has been removed
+    Register <char_input<82>> equivalent to <char_input<81>> has been removed
+    Register <char_input<83>> equivalent to <char_input<81>> has been removed
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state> of Case statement line 98 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <state>.
+    Found 4x11-bit ROM for signal <COND_2$rom0000>.
+    Found 1-bit register for signal <char_input<125>>.
+    Found 25-bit register for signal <char_input<120:96>>.
+    Found 1-bit register for signal <char_input<81>>.
+    Found 16-bit register for signal <char_input<79:64>>.
+    Found 1-bit register for signal <char_input<61>>.
+    Found 1-bit register for signal <char_input<52>>.
+    Found 3-bit register for signal <char_input<18:16>>.
+    Found 2-bit register for signal <char_input<11:10>>.
+    Found 2-bit register for signal <char_input<5:4>>.
+    Found 3-bit register for signal <char_input<2:0>>.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_100$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_101$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_102$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_103$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_104$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_105$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_106$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_107$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_108$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_109$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_110$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_111$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_112$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_113$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_114$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_115$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_116$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_117$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_118$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_119$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_64$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_65$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_66$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_67$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_68$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_69$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_70$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_71$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_72$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_73$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_74$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_75$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_76$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_77$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_78$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_79$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_96$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_97$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_98$mux0000> created at line 160.
+    Found 1-bit 4-to-1 multiplexer for signal <char_input_99$mux0000> created at line 160.
+    Found 3-bit register for signal <next_state>.
+    Found 8-bit register for signal <R1>.
+    Found 8-bit register for signal <R2>.
+    Found 1-bit register for signal <rd_key_code>.
+    Found 3-bit register for signal <state>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  75 D-type flip-flop(s).
+	inferred  40 Multiplexer(s).
+Unit <Interface> synthesized.
+
+
+Synthesizing Unit <ALU_Unit>.
+    Related source file is "ALU_Unit.v".
+WARNING:Xst:1305 - Output <Cout> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <wb7> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb6> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb5> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb13> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb12> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <wb11> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <r10<15:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <Cout2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <Cout1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <ALU_Unit> synthesized.
+
+
+Synthesizing Unit <Processor>.
+    Related source file is "Processor.v".
+WARNING:Xst:646 - Signal <Cout> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Using one-hot encoding for signal <presentstate>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <presentstate> of Case statement line 84 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <presentstate> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <data_ready>.
+    Found 8-bit register for signal <accumulator>.
+    Found 8-bit register for signal <program_counter>.
+    Found 8-bit register for signal <data_register>.
+    Found 12-bit register for signal <instruction_register>.
+    Found 5-bit register for signal <nextstate>.
+    Found 4-bit register for signal <opcode>.
+    Found 5-bit register for signal <presentstate>.
+    Found 8-bit adder for signal <program_counter$addsub0000> created at line 98.
+    Summary:
+	inferred  51 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Processor> synthesized.
+
+
+Synthesizing Unit <controlUnit>.
+    Related source file is "controlUnit.v".
+    Using one-hot encoding for signal <state>.
+    Found 8-bit register for signal <addra_reg>.
+    Found 8-bit adder for signal <addra_reg$addsub0000> created at line 124.
+    Found 12-bit register for signal <dina>.
+    Found 16-bit register for signal <dsply>.
+    Found 1-bit register for signal <dsply_en>.
+    Found 1-bit register for signal <lcd_en>.
+    Found 12-bit register for signal <mem_out>.
+    Found 1-bit register for signal <start>.
+    Found 4-bit register for signal <state>.
+    Found 4-bit register for signal <state_next>.
+    Found 1-bit register for signal <wea>.
+    Summary:
+	inferred  56 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <controlUnit> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 4x8-bit dual-port RAM                                 : 1
+# ROMs                                                 : 5
+ 16x8-bit ROM                                          : 4
+ 4x11-bit ROM                                          : 1
+# Multipliers                                          : 1
+ 8x8-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 12
+ 2-bit adder                                           : 3
+ 32-bit adder                                          : 4
+ 4-bit subtractor                                      : 1
+ 8-bit adder                                           : 3
+ 8-bit subtractor                                      : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 132
+ 1-bit register                                        : 71
+ 11-bit register                                       : 1
+ 12-bit register                                       : 3
+ 16-bit register                                       : 1
+ 2-bit register                                        : 3
+ 3-bit register                                        : 2
+ 32-bit register                                       : 3
+ 4-bit register                                        : 6
+ 5-bit register                                        : 2
+ 8-bit register                                        : 40
+# Latches                                              : 31
+ 8-bit latch                                           : 31
+# Comparators                                          : 3
+ 2-bit comparator equal                                : 2
+ 32-bit comparator less                                : 1
+# Multiplexers                                         : 44
+ 1-bit 4-to-1 multiplexer                              : 42
+ 8-bit 14-to-1 multiplexer                             : 1
+ 8-bit 32-to-1 multiplexer                             : 1
+# Xors                                                 : 18
+ 1-bit xor2                                            : 16
+ 8-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_3> for best encoding.
+Optimizing FSM <IO_module/makecode/port_reciever/state_reg/FSM> on signal <state_reg[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+-------------------
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <IO_module/LCD/init_state/FSM> on signal <init_state[1:11]> with one-hot encoding.
+----------------------
+ State | Encoding
+----------------------
+ 0000  | 00000000001
+ 0001  | 00000000010
+ 0010  | 00000000100
+ 0011  | 00000001000
+ 0100  | 00000010000
+ 0101  | 00000100000
+ 0110  | 00001000000
+ 0111  | 00010000000
+ 1000  | 00100000000
+ 1001  | 01000000000
+ 1010  | 10000000000
+----------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <IO_module/LCD/tx_state/FSM> on signal <tx_state[1:7]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 0000100
+ 001   | 0000010
+ 010   | 0001000
+ 011   | 0010000
+ 100   | 0100000
+ 101   | 1000000
+ 110   | 0000001
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <IO_module/LCD/cur_state/FSM> on signal <cur_state[1:4]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 0000
+ 0001  | 0001
+ 0010  | 0011
+ 0011  | 0010
+ 0100  | 0110
+ 0101  | 0111
+ 0110  | 0101
+ 0111  | 0100
+ 1000  | 1100
+ 1001  | 1101
+-------------------
+Reading core <ipcore_dir/RAM.ngc>.
+Loading core <RAM> for timing and area information for instance <MEMORY>.
+WARNING:Xst:1426 - The value init of the FF/Latch char_input_5 hinder the constant cleaning in the block IO_module.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1426 - The value init of the FF/Latch char_input_125 hinder the constant cleaning in the block IO_module.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <ascii_29_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_29_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_29_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_29_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_25_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_24_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_22_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_26_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <char_input_120> has a constant value of 0 in block <IO_module>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SF_D1_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SF_D1_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_31_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_29_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_29_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_27_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_28_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_30_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_17_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_10_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_10_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_10_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_2_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_2_5> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_2_7> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_0_7> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_1_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_1_5> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_1_7> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_5_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_3_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_3_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_4_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_6_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_7_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_7_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_11_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_21_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_23_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_19_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_15_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_16_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_3> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_4> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_20_6> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_0> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_1> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ascii_18_2> (without init value) has a constant value of 0 in block <LCD>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_4> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_5> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_6> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_7> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <b_reg_0> of sequential type is unconnected in block <port_reciever>.
+
+Synthesizing (advanced) Unit <fifo>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_array_reg> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <wr_en>         | high     |
+    |     addrA          | connected to signal <w_ptr_reg>     |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     addrB          | connected to signal <r_ptr_reg>     |          |
+    |     doB            | connected to signal <r_data>        |          |
+    -----------------------------------------------------------------------
+Unit <fifo> synthesized (advanced).
+WARNING:Xst:2677 - Node <b_reg_0> of sequential type is unconnected in block <ps2_rx>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 4
+# RAMs                                                 : 1
+ 4x8-bit dual-port distributed RAM                     : 1
+# ROMs                                                 : 5
+ 16x8-bit ROM                                          : 4
+ 4x11-bit ROM                                          : 1
+# Multipliers                                          : 1
+ 8x8-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 12
+ 2-bit adder                                           : 3
+ 32-bit adder                                          : 4
+ 4-bit subtractor                                      : 1
+ 8-bit adder                                           : 3
+ 8-bit subtractor                                      : 1
+# Counters                                             : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 595
+ Flip-Flops                                            : 595
+# Latches                                              : 31
+ 8-bit latch                                           : 31
+# Comparators                                          : 3
+ 2-bit comparator equal                                : 2
+ 32-bit comparator less                                : 1
+# Multiplexers                                         : 44
+ 1-bit 4-to-1 multiplexer                              : 42
+ 8-bit 14-to-1 multiplexer                             : 1
+ 8-bit 32-to-1 multiplexer                             : 1
+# Xors                                                 : 18
+ 1-bit xor2                                            : 16
+ 8-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <SF_D1_2> (without init value) has a constant value of 0 in block <lcdDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SF_D1_3> (without init value) has a constant value of 0 in block <lcdDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch char_input_125 hinder the constant cleaning in the block Interface.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch char_input_5 hinder the constant cleaning in the block Interface.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1293 - FF/Latch <char_input_120> has a constant value of 0 in block <Interface>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <ascii_0_1> in Unit <lcdDriver> is equivalent to the following 2 FFs/Latches, which will be removed : <ascii_3_1> <ascii_4_1> 
+INFO:Xst:2261 - The FF/Latch <ascii_3_0> in Unit <lcdDriver> is equivalent to the following 4 FFs/Latches, which will be removed : <ascii_2_2> <ascii_2_3> <ascii_4_2> <ascii_5_0> 
+INFO:Xst:2261 - The FF/Latch <ascii_0_2> in Unit <lcdDriver> is equivalent to the following 2 FFs/Latches, which will be removed : <ascii_6_0> <ascii_6_2> 
+INFO:Xst:2261 - The FF/Latch <ascii_0_3> in Unit <lcdDriver> is equivalent to the following 4 FFs/Latches, which will be removed : <ascii_3_2> <ascii_1_3> <ascii_6_1> <ascii_5_1> 
+INFO:Xst:2261 - The FF/Latch <ascii_3_6> in Unit <lcdDriver> is equivalent to the following 8 FFs/Latches, which will be removed : <ascii_1_2> <ascii_6_6> <ascii_4_0> <ascii_4_3> <ascii_4_6> <ascii_5_2> <ascii_5_3> <ascii_5_6> 
+INFO:Xst:2261 - The FF/Latch <ascii_3_5> in Unit <lcdDriver> is equivalent to the following 8 FFs/Latches, which will be removed : <ascii_3_7> <ascii_2_1> <ascii_6_5> <ascii_6_7> <ascii_4_5> <ascii_4_7> <ascii_5_5> <ascii_5_7> 
+INFO:Xst:2261 - The FF/Latch <ascii_6_4> in Unit <lcdDriver> is equivalent to the following 4 FFs/Latches, which will be removed : <ascii_7_0> <ascii_7_3> <ascii_7_4> <ascii_7_6> 
+INFO:Xst:2261 - The FF/Latch <ascii_1_0> in Unit <lcdDriver> is equivalent to the following 2 FFs/Latches, which will be removed : <ascii_7_5> <ascii_7_7> 
+INFO:Xst:2261 - The FF/Latch <ascii_0_7> in Unit <lcdDriver> is equivalent to the following 124 FFs/Latches, which will be removed : <ascii_3_3> <ascii_3_4> <ascii_1_4> <ascii_1_5> <ascii_1_7> <ascii_2_4> <ascii_2_5> <ascii_2_7> <ascii_6_3> <ascii_4_4> <ascii_5_4> <ascii_7_1> <ascii_7_2> <ascii_10_0> <ascii_10_4> <ascii_10_6> <ascii_11_0> <ascii_11_1> <ascii_11_2> <ascii_11_3> <ascii_11_4> <ascii_11_6> <ascii_16_0> <ascii_16_1> <ascii_16_2> <ascii_16_3> <ascii_16_4> <ascii_16_6> <ascii_15_0> <ascii_15_1> <ascii_15_2> <ascii_15_3> <ascii_15_4> <ascii_15_6> <ascii_19_0> <ascii_19_1> <ascii_19_2> <ascii_19_3> <ascii_19_4> <ascii_19_6> <ascii_17_0> <ascii_17_1> <ascii_17_2> <ascii_17_3> <ascii_17_4> <ascii_17_6> <ascii_18_0> <ascii_18_1> <ascii_18_2> <ascii_18_3> <ascii_18_4> <ascii_18_6> <ascii_22_0> <ascii_22_1> <ascii_22_2> <ascii_22_3> <ascii_22_4> <ascii_22_6> <ascii_20_0> <ascii_20_1> <ascii_20_2> <ascii_20_3> <ascii_20_4> <ascii_20_6> <ascii_21_0> <ascii_21_1> <ascii_21_2> <ascii_21_3> <ascii_21_4>
+   <ascii_21_6> <ascii_23_0> <ascii_23_1> <ascii_23_2> <ascii_23_3> <ascii_23_4> <ascii_23_6> <ascii_24_0> <ascii_24_1> <ascii_24_2> <ascii_24_3> <ascii_24_4> <ascii_24_6> <ascii_25_0> <ascii_25_1> <ascii_25_2> <ascii_25_3> <ascii_25_4> <ascii_25_6> <ascii_26_0> <ascii_26_1> <ascii_26_2> <ascii_26_3> <ascii_26_4> <ascii_26_6> <ascii_29_0> <ascii_29_1> <ascii_29_2> <ascii_29_3> <ascii_29_4> <ascii_29_6> <ascii_27_0> <ascii_27_1> <ascii_27_2> <ascii_27_3> <ascii_27_4> <ascii_27_6> <ascii_28_0> <ascii_28_1> <ascii_28_2> <ascii_28_3> <ascii_28_4> <ascii_28_6> <ascii_30_0> <ascii_30_1> <ascii_30_2> <ascii_30_3> <ascii_30_4> <ascii_30_6> <ascii_31_0> <ascii_31_1> <ascii_31_2> <ascii_31_3> <ascii_31_4> <ascii_31_6> 
+INFO:Xst:2261 - The FF/Latch <ascii_10_1> in Unit <lcdDriver> is equivalent to the following 2 FFs/Latches, which will be removed : <ascii_10_2> <ascii_10_3> 
+INFO:Xst:2261 - The FF/Latch <ascii_0_0> in Unit <lcdDriver> is equivalent to the following FF/Latch, which will be removed : <ascii_10_7> 
+INFO:Xst:2261 - The FF/Latch <ascii_1_1> in Unit <lcdDriver> is equivalent to the following FF/Latch, which will be removed : <ascii_2_0> 
+INFO:Xst:2261 - The FF/Latch <ascii_0_6> in Unit <lcdDriver> is equivalent to the following 39 FFs/Latches, which will be removed : <ascii_1_6> <ascii_2_6> <ascii_10_5> <ascii_11_5> <ascii_11_7> <ascii_16_5> <ascii_16_7> <ascii_15_5> <ascii_15_7> <ascii_19_5> <ascii_19_7> <ascii_17_5> <ascii_17_7> <ascii_18_5> <ascii_18_7> <ascii_22_5> <ascii_22_7> <ascii_20_5> <ascii_20_7> <ascii_21_5> <ascii_21_7> <ascii_23_5> <ascii_23_7> <ascii_24_5> <ascii_24_7> <ascii_25_5> <ascii_25_7> <ascii_26_5> <ascii_26_7> <ascii_29_5> <ascii_29_7> <ascii_27_5> <ascii_27_7> <ascii_28_5> <ascii_28_7> <ascii_30_5> <ascii_30_7> <ascii_31_5> <ascii_31_7> 
+WARNING:Xst:1710 - FF/Latch <ascii_0_7> (without init value) has a constant value of 0 in block <lcdDriver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Hex_4> (without init value) has a constant value of 0 in block <keytoHex>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Hex_5> (without init value) has a constant value of 0 in block <keytoHex>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Hex_6> (without init value) has a constant value of 0 in block <keytoHex>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Hex_7> (without init value) has a constant value of 0 in block <keytoHex>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <char_input_61> in Unit <Interface> is equivalent to the following FF/Latch, which will be removed : <char_input_103> 
+INFO:Xst:2261 - The FF/Latch <char_input_17> in Unit <Interface> is equivalent to the following 2 FFs/Latches, which will be removed : <char_input_71> <char_input_79> 
+INFO:Xst:2261 - The FF/Latch <char_input_10> in Unit <Interface> is equivalent to the following FF/Latch, which will be removed : <char_input_119> 
+INFO:Xst:2261 - The FF/Latch <char_input_2> in Unit <Interface> is equivalent to the following FF/Latch, which will be removed : <char_input_111> 
+
+Optimizing unit <controlUnit> ...
+
+Optimizing unit <lcdDriver> ...
+WARNING:Xst:1710 - FF/Latch <SF_D1_1> (without init value) has a constant value of 1 in block <lcdDriver>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <ps2_rx> ...
+
+Optimizing unit <fifo> ...
+
+Optimizing unit <keytoHex> ...
+
+Optimizing unit <DeMux1to16> ...
+
+Optimizing unit <kb_code> ...
+
+Optimizing unit <Subtractor8bit> ...
+
+Optimizing unit <Interface> ...
+
+Optimizing unit <ALU_Unit> ...
+
+Optimizing unit <Processor> ...
+WARNING:Xst:1710 - FF/Latch <dina_4> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_5> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_6> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dina_7> (without init value) has a constant value of 0 in block <controlUnit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out5_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out6_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out7_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out11_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out12_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_6> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_5> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_4> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_3> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_2> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_1> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux2/Out13_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux1/Out11_0> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux1/Out12_7> of sequential type is unconnected in block <controlUnit>.
+WARNING:Xst:2677 - Node <ALU_logic/ALU/DeMux1/Out13_0> of sequential type is unconnected in block <controlUnit>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <IO_module/LCD/ascii_0_2> in Unit <controlUnit> is equivalent to the following FF/Latch, which will be removed : <IO_module/LCD/ascii_13_7> 
+INFO:Xst:2261 - The FF/Latch <IO_module/LCD/ascii_3_6> in Unit <controlUnit> is equivalent to the following FF/Latch, which will be removed : <IO_module/LCD/ascii_14_7> 
+INFO:Xst:2261 - The FF/Latch <IO_module/LCD/ascii_3_5> in Unit <controlUnit> is equivalent to the following 2 FFs/Latches, which will be removed : <IO_module/LCD/ascii_9_7> <IO_module/LCD/ascii_8_7> 
+INFO:Xst:2261 - The FF/Latch <IO_module/LCD/ascii_1_0> in Unit <controlUnit> is equivalent to the following FF/Latch, which will be removed : <IO_module/LCD/ascii_12_7> 
+Found area constraint ratio of 100 (+ 5) on block controlUnit, actual ratio is 9.
+FlipFlop IO_module/LCD/i1_0 has been replicated 1 time(s)
+FlipFlop IO_module/LCD/i1_1 has been replicated 1 time(s)
+FlipFlop IO_module/LCD/i1_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <controlUnit> :
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_0_0>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_0_2>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_0_3>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_0_5>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_0_6>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_3_6>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_1_0>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_1_1>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_13_2>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_13_3>.
+	Found 2-bit shift register for signal <IO_module/LCD/ascii_13_5>.
+Unit <controlUnit> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 412
+ Flip-Flops                                            : 412
+# Shift Registers                                      : 11
+ 2-bit shift register                                  : 11
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : controlUnit.ngr
+Top Level Output File Name         : controlUnit
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 1365
+#      GND                         : 2
+#      INV                         : 12
+#      LUT1                        : 126
+#      LUT2                        : 96
+#      LUT2_D                      : 2
+#      LUT2_L                      : 7
+#      LUT3                        : 180
+#      LUT3_D                      : 5
+#      LUT4                        : 462
+#      LUT4_D                      : 17
+#      LUT4_L                      : 8
+#      MUXCY                       : 178
+#      MUXF5                       : 93
+#      MUXF6                       : 14
+#      MUXF7                       : 1
+#      VCC                         : 2
+#      XORCY                       : 160
+# FlipFlops/Latches                : 612
+#      FD                          : 97
+#      FDC                         : 40
+#      FDCE                        : 35
+#      FDE                         : 155
+#      FDP                         : 3
+#      FDR                         : 58
+#      FDRS                        : 3
+#      FDS                         : 30
+#      FDSE                        : 2
+#      LD                          : 173
+#      LD_1                        : 16
+# RAMS                             : 9
+#      RAM16X1D                    : 8
+#      RAMB16BWE                   : 1
+# Shift Registers                  : 11
+#      SRL16                       : 11
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 18
+#      IBUF                        : 7
+#      OBUF                        : 11
+# MULTs                            : 1
+#      MULT18X18SIO                : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700anfgg484-4 
+
+ Number of Slices:                      568  out of   5888     9%  
+ Number of Slice Flip Flops:            612  out of  11776     5%  
+ Number of 4 input LUTs:                942  out of  11776     7%  
+    Number used as logic:               915
+    Number used as Shift registers:      11
+    Number used as RAMs:                 16
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    372     4%  
+ Number of BRAMs:                         1  out of     20     5%  
+ Number of MULT18X18SIOs:                 1  out of     20     5%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-------------------------------------------------------------------------------+--------------------------------------+-------+
+Clock Signal                                                                   | Clock buffer(FF name)                | Load  |
+-------------------------------------------------------------------------------+--------------------------------------+-------+
+clk                                                                            | IBUF+BUFG                            | 353   |
+IO_module/encoder1/Hex_not0001(IO_module/encoder1/Hex_not0001213_f5:O)         | NONE(*)(IO_module/encoder1/Hex_0)    | 4     |
+IO_module/encoder2/Hex_not0001(IO_module/encoder2/Hex_not0001213_f5:O)         | NONE(*)(IO_module/encoder2/Hex_0)    | 4     |
+IO_module/LCD/rstclk1(IO_module/LCD/rstclk1:O)                                 | BUFG(*)(IO_module/LCD/LCD_E0)        | 90    |
+ALU_logic/ALU/MUX/Out_not0001(ALU_logic/ALU/MUX/Out_not00011:O)                | NONE(*)(ALU_logic/ALU/MUX/Out_0)     | 8     |
+ALU_logic/ALU/DeMux1/Out1_cmp_eq0000(ALU_logic/ALU/DeMux2/Out1_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out1_7) | 16    |
+ALU_logic/ALU/DeMux1/Out2_cmp_eq0000(ALU_logic/ALU/DeMux2/Out2_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out2_7) | 16    |
+ALU_logic/ALU/DeMux1/Out3_cmp_eq0000(ALU_logic/ALU/DeMux2/Out3_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out3_7) | 16    |
+ALU_logic/ALU/DeMux1/Out4_cmp_eq0000(ALU_logic/ALU/DeMux2/Out4_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out4_7) | 16    |
+ALU_logic/ALU/DeMux1/Out8_cmp_eq0000(ALU_logic/ALU/DeMux2/Out8_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out8_7) | 16    |
+ALU_logic/ALU/DeMux1/Out9_cmp_eq0000(ALU_logic/ALU/DeMux2/Out9_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux2/Out9_7) | 16    |
+ALU_logic/ALU/DeMux1/Out10_cmp_eq0000(ALU_logic/ALU/DeMux2/Out10_cmp_eq00001:O)| NONE(*)(ALU_logic/ALU/DeMux2/Out10_7)| 16    |
+ALU_logic/ALU/DeMux1/Out0_not0001(ALU_logic/ALU/DeMux2/Out0_not00011:O)        | NONE(*)(ALU_logic/ALU/DeMux2/Out0_7) | 16    |
+ALU_logic/ALU/DeMux1/Out5_cmp_eq0000(ALU_logic/ALU/DeMux1/Out5_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux1/Out5_7) | 8     |
+ALU_logic/ALU/DeMux1/Out6_cmp_eq0000(ALU_logic/ALU/DeMux1/Out6_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux1/Out6_7) | 8     |
+ALU_logic/ALU/DeMux1/Out7_cmp_eq0000(ALU_logic/ALU/DeMux1/Out7_cmp_eq00001:O)  | NONE(*)(ALU_logic/ALU/DeMux1/Out7_7) | 8     |
+ALU_logic/ALU/DeMux1/Out11_cmp_eq0000(ALU_logic/ALU/DeMux1/Out11_cmp_eq00001:O)| NONE(*)(ALU_logic/ALU/DeMux1/Out11_7)| 7     |
+ALU_logic/ALU/DeMux1/Out12_cmp_eq0000(ALU_logic/ALU/DeMux1/Out12_cmp_eq00001:O)| NONE(*)(ALU_logic/ALU/DeMux1/Out12_6)| 7     |
+ALU_logic/ALU/DeMux1/Out13_cmp_eq0000(ALU_logic/ALU/DeMux1/Out13_cmp_eq00001:O)| NONE(*)(ALU_logic/ALU/DeMux1/Out13_7)| 7     |
+-------------------------------------------------------------------------------+--------------------------------------+-------+
+(*) These 18 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 78    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.329ns (Maximum Frequency: 107.193MHz)
+   Minimum input arrival time before clock: 4.379ns
+   Maximum output required time after clock: 8.746ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 9.307ns (frequency: 107.446MHz)
+  Total number of paths / destination ports: 20143 / 558
+-------------------------------------------------------------------------
+Delay:               9.307ns (Levels of Logic = 25)
+  Source:            IO_module/LCD/i1_3 (FF)
+  Destination:       IO_module/LCD/cur_state_FSM_FFd4 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: IO_module/LCD/i1_3 to IO_module/LCD/cur_state_FSM_FFd4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            16   0.591   1.177  IO_module/LCD/i1_3 (IO_module/LCD/i1_3)
+     LUT1:I0->O            1   0.648   0.000  IO_module/LCD/Madd__old_i1_4_cy<3>_rt (IO_module/LCD/Madd__old_i1_4_cy<3>_rt)
+     MUXCY:S->O            1   0.632   0.000  IO_module/LCD/Madd__old_i1_4_cy<3> (IO_module/LCD/Madd__old_i1_4_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<4> (IO_module/LCD/Madd__old_i1_4_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<5> (IO_module/LCD/Madd__old_i1_4_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<6> (IO_module/LCD/Madd__old_i1_4_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<7> (IO_module/LCD/Madd__old_i1_4_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<8> (IO_module/LCD/Madd__old_i1_4_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<9> (IO_module/LCD/Madd__old_i1_4_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<10> (IO_module/LCD/Madd__old_i1_4_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<11> (IO_module/LCD/Madd__old_i1_4_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<12> (IO_module/LCD/Madd__old_i1_4_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<13> (IO_module/LCD/Madd__old_i1_4_cy<13>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<14> (IO_module/LCD/Madd__old_i1_4_cy<14>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<15> (IO_module/LCD/Madd__old_i1_4_cy<15>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<16> (IO_module/LCD/Madd__old_i1_4_cy<16>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<17> (IO_module/LCD/Madd__old_i1_4_cy<17>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<18> (IO_module/LCD/Madd__old_i1_4_cy<18>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<19> (IO_module/LCD/Madd__old_i1_4_cy<19>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<20> (IO_module/LCD/Madd__old_i1_4_cy<20>)
+     MUXCY:CI->O           1   0.065   0.000  IO_module/LCD/Madd__old_i1_4_cy<21> (IO_module/LCD/Madd__old_i1_4_cy<21>)
+     XORCY:CI->O           1   0.844   0.423  IO_module/LCD/Madd__old_i1_4_xor<22> (IO_module/LCD/_old_i1_4<22>)
+     LUT4:I3->O            1   0.648   0.452  IO_module/LCD/cur_state_FSM_FFd4-In143 (IO_module/LCD/cur_state_FSM_FFd4-In143)
+     LUT4:I2->O            1   0.648   0.423  IO_module/LCD/cur_state_FSM_FFd4-In186 (IO_module/LCD/cur_state_FSM_FFd4-In186)
+     LUT4_L:I3->LO         1   0.648   0.103  IO_module/LCD/cur_state_FSM_FFd4-In302 (IO_module/LCD/cur_state_FSM_FFd4-In302)
+     LUT4:I3->O            1   0.648   0.000  IO_module/LCD/cur_state_FSM_FFd4-In350 (IO_module/LCD/cur_state_FSM_FFd4-In)
+     FDC:D                     0.252          IO_module/LCD/cur_state_FSM_FFd4
+    ----------------------------------------
+    Total                      9.307ns (6.729ns logic, 2.578ns route)
+                                       (72.3% logic, 27.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'IO_module/LCD/rstclk1'
+  Clock period: 9.329ns (frequency: 107.193MHz)
+  Total number of paths / destination ports: 12456 / 91
+-------------------------------------------------------------------------
+Delay:               9.329ns (Levels of Logic = 7)
+  Source:            IO_module/LCD/i_25 (FF)
+  Destination:       IO_module/LCD/i_0 (FF)
+  Source Clock:      IO_module/LCD/rstclk1 rising
+  Destination Clock: IO_module/LCD/rstclk1 rising
+
+  Data Path: IO_module/LCD/i_25 to IO_module/LCD/i_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.591   0.674  IO_module/LCD/i_25 (IO_module/LCD/i_25)
+     LUT4:I0->O            1   0.648   0.500  IO_module/LCD/init_state_cmp_eq0000125 (IO_module/LCD/init_state_cmp_eq0000125)
+     LUT4:I1->O            3   0.643   0.534  IO_module/LCD/init_state_cmp_eq0000176 (IO_module/LCD/N6)
+     LUT4_D:I3->LO         1   0.648   0.103  IO_module/LCD/init_state_cmp_eq00002 (N308)
+     LUT4:I3->O            3   0.648   0.534  IO_module/LCD/init_state_cmp_eq0002 (IO_module/LCD/init_state_cmp_eq0002)
+     LUT4:I3->O            2   0.648   0.590  IO_module/LCD/i_mux0000<0>121 (IO_module/LCD/i_mux0000<0>121)
+     LUT3_D:I0->O         15   0.648   1.020  IO_module/LCD/i_mux0000<0>147 (IO_module/LCD/N0)
+     LUT4:I3->O            1   0.648   0.000  IO_module/LCD/i_mux0000<22>1 (IO_module/LCD/i_mux0000<22>)
+     FDE:D                     0.252          IO_module/LCD/i_9
+    ----------------------------------------
+    Total                      9.329ns (5.374ns logic, 3.955ns route)
+                                       (57.6% logic, 42.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 46 / 43
+-------------------------------------------------------------------------
+Offset:              4.379ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       IO_module/LCD/i3_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to IO_module/LCD/i3_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           104   0.849   1.285  reset_IBUF (reset_IBUF)
+     INV:I->O            103   0.648   1.285  IO_module/LCD/reset_inv1_INV_0 (IO_module/LCD/reset_inv)
+     FDE:CE                    0.312          IO_module/LCD/i3_0
+    ----------------------------------------
+    Total                      4.379ns (1.809ns logic, 2.570ns route)
+                                       (41.3% logic, 58.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'IO_module/LCD/rstclk1'
+  Total number of paths / destination ports: 90 / 90
+-------------------------------------------------------------------------
+Offset:              4.379ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       IO_module/LCD/LCD_E0 (FF)
+  Destination Clock: IO_module/LCD/rstclk1 rising
+
+  Data Path: reset to IO_module/LCD/LCD_E0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           104   0.849   1.285  reset_IBUF (reset_IBUF)
+     INV:I->O            103   0.648   1.285  IO_module/LCD/reset_inv1_INV_0 (IO_module/LCD/reset_inv)
+     FDE:CE                    0.312          IO_module/LCD/LCD_E0
+    ----------------------------------------
+    Total                      4.379ns (1.809ns logic, 2.570ns route)
+                                       (41.3% logic, 58.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 24 / 6
+-------------------------------------------------------------------------
+Offset:              8.746ns (Levels of Logic = 3)
+  Source:            IO_module/LCD/cur_state_FSM_FFd2 (FF)
+  Destination:       LCD_E (PAD)
+  Source Clock:      clk rising
+
+  Data Path: IO_module/LCD/cur_state_FSM_FFd2 to LCD_E
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             18   0.591   1.148  IO_module/LCD/cur_state_FSM_FFd2 (IO_module/LCD/cur_state_FSM_FFd2)
+     LUT4:I1->O            5   0.643   0.776  IO_module/LCD/cur_state_FSM_Out101 (IO_module/LCD/mux)
+     LUT2:I0->O            1   0.648   0.420  IO_module/LCD/_AUX_5<4>1 (LCD_DB_7_OBUF)
+     OBUF:I->O                 4.520          LCD_DB_7_OBUF (LCD_DB<7>)
+    ----------------------------------------
+    Total                      8.746ns (6.402ns logic, 2.344ns route)
+                                       (73.2% logic, 26.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'IO_module/LCD/rstclk1'
+  Total number of paths / destination ports: 7 / 5
+-------------------------------------------------------------------------
+Offset:              6.701ns (Levels of Logic = 2)
+  Source:            IO_module/LCD/LCD_E1 (FF)
+  Destination:       LCD_E (PAD)
+  Source Clock:      IO_module/LCD/rstclk1 rising
+
+  Data Path: IO_module/LCD/LCD_E1 to LCD_E
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.591   0.527  IO_module/LCD/LCD_E1 (IO_module/LCD/LCD_E1)
+     LUT3:I1->O            1   0.643   0.420  IO_module/LCD/_AUX_5<0>1 (LCD_E_OBUF)
+     OBUF:I->O                 4.520          LCD_E_OBUF (LCD_E)
+    ----------------------------------------
+    Total                      6.701ns (5.754ns logic, 0.947ns route)
+                                       (85.9% logic, 14.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 43.00 secs
+Total CPU time to Xst completion: 43.71 secs
+ 
+--> 
+
+Total memory usage is 385608 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  242 (   0 filtered)
+Number of infos    :   31 (   0 filtered)
+

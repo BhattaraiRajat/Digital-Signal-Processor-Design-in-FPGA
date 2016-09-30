@@ -1,0 +1,26 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Sep 14 10:03:52 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "E12" LEVEL 1;
+COMP "ps2c" LOCATE = SITE "W12" LEVEL 1;
+COMP "ps2d" LOCATE = SITE "V11" LEVEL 1;
+COMP "next" LOCATE = SITE "T14" LEVEL 1;
+COMP "LCD_E" LOCATE = SITE "AB4" LEVEL 1;
+COMP "reset" LOCATE = SITE "T16" LEVEL 1;
+COMP "LCD_RS" LOCATE = SITE "Y14" LEVEL 1;
+COMP "LCD_RW" LOCATE = SITE "W13" LEVEL 1;
+COMP "load_key" LOCATE = SITE "T15" LEVEL 1;
+COMP "LCD_DB<0>" LOCATE = SITE "Y13" LEVEL 1;
+COMP "LCD_DB<1>" LOCATE = SITE "AB18" LEVEL 1;
+COMP "LCD_DB<2>" LOCATE = SITE "AB17" LEVEL 1;
+COMP "LCD_DB<3>" LOCATE = SITE "AB12" LEVEL 1;
+COMP "LCD_DB<4>" LOCATE = SITE "AA12" LEVEL 1;
+COMP "LCD_DB<5>" LOCATE = SITE "Y16" LEVEL 1;
+COMP "LCD_DB<6>" LOCATE = SITE "AB16" LEVEL 1;
+COMP "LCD_DB<7>" LOCATE = SITE "Y15" LEVEL 1;
+COMP "execute_key" LOCATE = SITE "U15" LEVEL 1;
+NET "clk_IBUF1" PERIOD = 20 ns HIGH 40%;
+SCHEMATIC END;
+

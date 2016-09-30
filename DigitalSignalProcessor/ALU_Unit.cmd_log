@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj DigitalSignalProcessor -o D:/FPGA/DigitalSignalProcessor/ALU_Unit.tfi -lib work D:/FPGA/DigitalSignalProcessor//ALU_Unit.v -module ALU_Unit -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

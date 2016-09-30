@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+Processor instance_name (
+    .clk(clk), 
+    .reset(reset), 
+    .start(start), 
+    .mem_out(mem_out), 
+    .program_counter(program_counter), 
+    .accumulator(accumulator), 
+    .data_ready(data_ready)
+    );
+
+

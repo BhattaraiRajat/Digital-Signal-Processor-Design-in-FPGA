@@ -1,0 +1,17 @@
+[Inputs]
+clk
+reset
+ps2c
+ps2d
+next
+load_key
+execute_key
+[Outputs]
+LCD_E
+LCD_RS
+LCD_RW
+=LCD_DB[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel controlUnit
+
